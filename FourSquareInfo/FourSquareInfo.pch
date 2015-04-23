@@ -1,0 +1,27 @@
+//
+//  FourSquareInfo.pch
+//  FourSquareInfo
+//
+//  Created by Nattapat Vongchinsri on 4/20/2558 BE.
+//  Copyright (c) 2558 Nattapat Vongchinsri. All rights reserved.
+//
+
+#ifndef FourSquareInfo_FourSquareInfo_pch
+#define FourSquareInfo_FourSquareInfo_pch
+#endif
+
+#import <Availability.h>
+#import <float.h>
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#define FSCLIENT_ID @"3X5PQDQO5EZ2KIOSWR1PQ5UPURHYVACCYPIHOW4ZWFKB5AD1"
+#define FSCLIENT_SECRET @"1PTQ1TYUXN5BFGGVDL3FXFNCS5NZXU412QLTQHVU1KXFIN32"
+
+
