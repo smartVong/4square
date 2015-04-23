@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>13308995-2638-412D-97B1-185743145103</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FourSquareInfo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>60EB840A5CE78896720AC18DDF9FD64AAC2703D0</key>
+		<string>https://bitbucket.org/smartvong/4square.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FourSquareInfo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>60EB840A5CE78896720AC18DDF9FD64AAC2703D0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/smartvong/4square.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>60EB840A5CE78896720AC18DDF9FD64AAC2703D0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>60EB840A5CE78896720AC18DDF9FD64AAC2703D0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>4square</string>
+		</dict>
+	</array>
+</dict>
+</plist>

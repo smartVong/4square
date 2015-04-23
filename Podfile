@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
+pod 'AFNetworking', '~> 2.5'
+source 'https://github.com/nicklockwood/AsyncImageView'
+platform :ios, '7.0'
+pod 'ASyncImageView', '~> 1.5.1'
