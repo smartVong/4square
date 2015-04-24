@@ -40,17 +40,21 @@
 #pragma  mark - 4square API caller
 - (void)getInfo:(CLLocationCoordinate2D)locations
 {
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=%@&client_secret=%@&v=20130815&ll=%f,%f&radius=10000&limit=50",FSCLIENT_ID,FSCLIENT_SECRET,locations.latitude,locations.longitude];
+    NSString *string = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=%@&client_secret=%@&v=20130815&ll=%f,%f&radius=10000&limit=50",FSCLIENT_ID,FSCLIENT_SECRET,locations.latitude,locations.longitude];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject)
-     {
-         self.result = [NSArray arrayWithArray:[[responseObject objectForKey:@"response"] objectForKey:@"venues"]];
-         [self.tableView reloadData];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        self.result = [NSArray arrayWithArray:[[responseObject objectForKey:@"response"] objectForKey:@"venues"]];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
         NSLog(@"Error: %@", error);
     }];
+    [operation start];
 }
 
 #pragma  mark - UITableView DataSource

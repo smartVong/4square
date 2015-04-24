@@ -34,18 +34,21 @@
 
 - (void) getInfo
 {
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@?client_id=%@&client_secret=%@&v=20130815",self.info_id,FSCLIENT_ID,FSCLIENT_SECRET];
-    NSLog(@"%@",url);
+    NSString *string = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@?client_id=%@&client_secret=%@&v=20130815",self.info_id,FSCLIENT_ID,FSCLIENT_SECRET];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject)
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          self.landmark_info = [NSDictionary dictionaryWithDictionary:[[responseObject objectForKey:@"response"] objectForKey:@"venue"]];
          [self displayInfo];
-         
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
          NSLog(@"Error: %@", error);
      }];
+    [operation start];
 }
 
 - (void)displayInfo
