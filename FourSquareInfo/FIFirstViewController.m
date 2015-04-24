@@ -23,6 +23,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"FIFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"FirstViewCell"];
     
     self.CLmanager = [[CLLocationManager alloc] init];
     self.CLmanager.delegate = self;
@@ -65,18 +66,13 @@
 
 - (FIFirstTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"FirstViewCell";
-    
-    FIFirstTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if(!cell)
-    {
-        [self.tableView registerNib:[UINib nibWithNibName:@"FIFirstTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
-        cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    }
+    FIFirstTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FirstViewCell" forIndexPath:indexPath];
     
     NSDictionary *row = [self.result objectAtIndex:indexPath.row];
-    NSArray *location = [[row objectForKey:@"location"] objectForKey:@"formattedAddress"];
+    
     cell.landmark_name.text = [row objectForKey:@"name"];
+    
+    NSArray *location = [[row objectForKey:@"location"] objectForKey:@"formattedAddress"];
     NSString* address = @"";
     for (int i=0;i<[location count];i++)
     {
@@ -90,6 +86,7 @@
         }
     }
     cell.landmark_address.text = address;
+    
     [cell.landmark_address sizeToFit];
     [cell.landmark_name sizeToFit];
     
